@@ -17,7 +17,24 @@ npm install eslint-nestjs-apiresponse --save-dev
 
 ## Usage
 
-Add the plugin to your `.eslintrc`:
+For ESLint 9+ (flat config), add to your `eslint.config.js`:
+
+```javascript
+import nestjsApiResponse from 'eslint-nestjs-apiresponse';
+
+export default [
+  {
+    plugins: {
+      'nestjs-apiresponse': nestjsApiResponse
+    },
+    rules: {
+      'nestjs-apiresponse/require-http-status': 'error'
+    }
+  }
+];
+```
+
+For ESLint 8 and below (`.eslintrc`):
 
 ```json
 {
@@ -61,7 +78,7 @@ return { status: HttpStatus.OK, data: result };
 ## Requirements
 
 - Node.js >=14.0.0
-- ESLint >=7.0.0
+- ESLint >=9.0.0 (for flat config) or >=7.0.0 (for legacy config)
 - @nestjs/common >=8.0.0
 - @nestjs/swagger >=5.0.0
 
