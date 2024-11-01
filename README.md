@@ -1,11 +1,11 @@
 # eslint-nestjs-apiresponse
 
-A simple ESLint plugin that enforces the use of HttpStatus enum from @nestjs/common in NestJS ApiResponse decorators.
+A simple ESLint plugin that enforces the use of HttpStatus enum from @nestjs/common in NestJS applications.
 
 ## Features
 
-- Automatically detects numeric literals in `@ApiResponse` decorators
-- Suggests replacing them with appropriate `HttpStatus` enum values
+- Enforces the use of `HttpStatus` enum instead of numeric literals
+- Works with both `@ApiResponse` decorators and returned response objects
 - Automatically adds `HttpStatus` import when missing
 - Includes autofix functionality
 
@@ -40,14 +40,22 @@ Or use the recommended configuration:
 
 ❌ Incorrect:
 ```typescript
+// In decorators
 @ApiResponse({ status: 200, description: 'Success' })
+
+// In response objects
+return { status: 200, data: result };
 ```
 
 ✅ Correct:
 ```typescript
 import { HttpStatus } from '@nestjs/common';
 
+// In decorators
 @ApiResponse({ status: HttpStatus.OK, description: 'Success' })
+
+// In response objects
+return { status: HttpStatus.OK, data: result };
 ```
 
 ## Requirements
