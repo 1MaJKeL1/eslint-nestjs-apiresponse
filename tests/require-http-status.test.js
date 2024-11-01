@@ -2,7 +2,7 @@ const { RuleTester } = require("eslint");
 const rule = require("../src/rules/require-http-status");
 
 const ruleTester = new RuleTester({
-  parserOptions: {
+  languageOptions: {
     ecmaVersion: 2018,
     sourceType: "module",
   },
