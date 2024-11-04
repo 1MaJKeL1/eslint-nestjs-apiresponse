@@ -17,18 +17,18 @@ npm install eslint-nestjs-apiresponse --save-dev
 
 ## Usage
 
-For ESLint 9+ (flat config), add to your `eslint.config.js`:
+For ESLint 9+ (flat config), add to your `eslint.config.js` or `eslint.config.mjs`:
 
 ```javascript
-import nestjsApiResponse from 'eslint-nestjs-apiresponse';
+import nestjsApiResponse from "eslint-nestjs-apiresponse";
 
 export default [
   {
     plugins: {
-      'nestjs-apiresponse': nestjsApiResponse
+      "eslint-nestjs-apiresponse": nestjsApiResponse
     },
     rules: {
-      'nestjs-apiresponse/require-http-status': 'error'
+      "eslint-nestjs-apiresponse/require-http-status": "error"
     }
   }
 ];
@@ -38,9 +38,9 @@ For ESLint 8 and below (`.eslintrc`):
 
 ```json
 {
-  "plugins": ["nestjs-apiresponse"],
+  "plugins": ["eslint-nestjs-apiresponse"],
   "rules": {
-    "nestjs-apiresponse/require-http-status": "error"
+    "eslint-nestjs-apiresponse/require-http-status": "error"
   }
 }
 ```
@@ -49,8 +49,20 @@ Or use the recommended configuration:
 
 ```json
 {
-  "extends": ["plugin:nestjs-apiresponse/recommended"]
+  "extends": ["plugin:eslint-nestjs-apiresponse/recommended"]
 }
+```
+
+### Running from CLI
+
+To run the plugin directly from command line:
+
+```bash
+# Check files
+npx eslint --rule 'eslint-nestjs-apiresponse/require-http-status: error' src/
+
+# With auto-fix
+npx eslint --rule 'eslint-nestjs-apiresponse/require-http-status: error' --fix src/
 ```
 
 ## Examples
