@@ -8,6 +8,7 @@ A simple ESLint plugin that enforces the use of HttpStatus enum from @nestjs/com
 - Works with both `@ApiResponse` decorators and returned response objects
 - Automatically adds `HttpStatus` import when missing
 - Includes autofix functionality
+- Full TypeScript support out of the box
 
 ## Installation
 
@@ -86,6 +87,10 @@ import { HttpStatus } from '@nestjs/common';
 // In response objects
 return { status: HttpStatus.OK, data: result };
 ```
+
+## TypeScript Support
+
+The plugin includes TypeScript type definitions out of the box. No additional `@types` packages are required. Just install and use - TypeScript will automatically pick up the type definitions.
 
 ## Requirements
 
